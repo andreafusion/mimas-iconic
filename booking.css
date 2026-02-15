@@ -1,0 +1,568 @@
+/* ============================================
+   BOOKING SYSTEM STYLES
+   Sistema de Reservas Integrado
+   ============================================ */
+
+#booking-main {
+    padding: 8rem 0 4rem;
+    min-height: 100vh;
+    background: var(--cream);
+}
+
+.booking-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.booking-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+}
+
+.booking-header .subtitle {
+    font-size: 1.1rem;
+    color: var(--charcoal-light);
+    font-weight: 300;
+}
+
+/* ============================================
+   BOOKING STEPS INDICATOR
+   ============================================ */
+.booking-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--cream-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--charcoal-light);
+    transition: var(--transition);
+}
+
+.step-label {
+    font-size: 0.85rem;
+    color: var(--charcoal-light);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.step.active .step-number {
+    background: var(--rose-dust);
+    border-color: var(--rose-dust);
+    color: white;
+}
+
+.step.active .step-label {
+    color: var(--charcoal);
+    font-weight: 500;
+}
+
+.step.completed .step-number {
+    background: var(--mauve);
+    border-color: var(--mauve);
+    color: white;
+}
+
+.step-connector {
+    flex: 1;
+    height: 2px;
+    background: var(--cream-dark);
+    margin: 0 -1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Mobile steps */
+@media (max-width: 640px) {
+    .step-label {
+        display: none;
+    }
+    
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .step-connector {
+        margin: 0 -0.5rem;
+        margin-bottom: 0;
+    }
+}
+
+/* ============================================
+   BOOKING FORM
+   ============================================ */
+.booking-form {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-step h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--charcoal);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* ============================================
+   SERVICE SELECTION
+   ============================================ */
+.services-selection {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.service-option {
+    cursor: pointer;
+    display: block;
+}
+
+.service-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.service-card-booking {
+    padding: 1.5rem;
+    border: 2px solid var(--cream-dark);
+    border-radius: 12px;
+    transition: var(--transition);
+    background: var(--cream);
+}
+
+.service-option input[type="radio"]:checked + .service-card-booking {
+    border-color: var(--rose-dust);
+    background: white;
+    box-shadow: 0 4px 20px rgba(232, 196, 196, 0.2);
+}
+
+.service-card-booking:hover {
+    border-color: var(--mauve);
+    transform: translateY(-2px);
+}
+
+.service-card-booking h3 {
+    font-size: 1.3rem;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+}
+
+.service-desc {
+    color: var(--charcoal-light);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.service-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-meta .price {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--rose-dust);
+    font-weight: 600;
+}
+
+.service-meta .duration {
+    color: var(--charcoal-light);
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   CALENDAR
+   ============================================ */
+.calendar-container {
+    margin-bottom: 2rem;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.calendar-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--charcoal);
+    margin: 0;
+}
+
+.calendar-nav {
+    background: var(--cream);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: var(--charcoal);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.calendar-nav:hover {
+    background: var(--rose-dust);
+    color: white;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--cream);
+    color: var(--charcoal);
+    border: 2px solid transparent;
+}
+
+.calendar-day.header {
+    font-weight: 600;
+    background: transparent;
+    cursor: default;
+    color: var(--charcoal-light);
+}
+
+.calendar-day.other-month {
+    color: var(--charcoal-light);
+    opacity: 0.3;
+}
+
+.calendar-day.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.calendar-day:not(.header):not(.disabled):not(.other-month):hover {
+    background: var(--rose-soft);
+    border-color: var(--rose-dust);
+}
+
+.calendar-day.selected {
+    background: var(--rose-dust);
+    color: white;
+    border-color: var(--rose-dust);
+}
+
+.calendar-day.today {
+    border-color: var(--mauve);
+}
+
+/* ============================================
+   TIME SLOTS
+   ============================================ */
+.time-selection {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--cream-dark);
+}
+
+.time-selection h3 {
+    font-size: 1.2rem;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+}
+
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.75rem;
+}
+
+.time-slot {
+    padding: 0.75rem;
+    border: 2px solid var(--cream-dark);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--cream);
+    font-size: 0.9rem;
+    color: var(--charcoal);
+}
+
+.time-slot:hover {
+    border-color: var(--mauve);
+    background: white;
+}
+
+.time-slot.selected {
+    border-color: var(--rose-dust);
+    background: var(--rose-dust);
+    color: white;
+}
+
+.time-slot.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: var(--cream-dark);
+}
+
+/* ============================================
+   FORM FIELDS
+   ============================================ */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border: 2px solid var(--cream-dark);
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--cream);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--rose-dust);
+    background: white;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--charcoal-light);
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 0.25rem;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.checkbox-group span {
+    font-size: 0.9rem;
+    color: var(--charcoal-light);
+}
+
+.checkbox-group a {
+    color: var(--mauve-dark);
+    text-decoration: underline;
+}
+
+/* ============================================
+   BOOKING SUMMARY
+   ============================================ */
+.booking-summary {
+    background: var(--cream);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.summary-section {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.summary-section:last-child {
+    border-bottom: none;
+}
+
+.summary-section h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--charcoal-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.summary-section p {
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    margin-bottom: 0.25rem;
+}
+
+.summary-price {
+    font-family: var(--font-display);
+    font-size: 1.5rem !important;
+    color: var(--rose-dust) !important;
+    font-weight: 600;
+}
+
+/* ============================================
+   SUCCESS MESSAGE
+   ============================================ */
+.success-message {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.success-message svg {
+    margin-bottom: 2rem;
+}
+
+.success-message h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+}
+
+.success-message p {
+    font-size: 1.1rem;
+    color: var(--charcoal-light);
+    margin-bottom: 1rem;
+}
+
+.booking-details-final {
+    background: var(--cream);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+
+.booking-details-final p {
+    font-size: 1rem;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   NAVIGATION BUTTONS
+   ============================================ */
+.booking-navigation {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.btn-next:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .booking-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    #booking-main {
+        padding: 6rem 0 2rem;
+    }
+    
+    .time-slots {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+    
+    .booking-navigation {
+        flex-direction: column;
+    }
+    
+    .booking-navigation .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-grid {
+        gap: 0.25rem;
+    }
+    
+    .calendar-day {
+        font-size: 0.8rem;
+    }
+    
+    .time-slots {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

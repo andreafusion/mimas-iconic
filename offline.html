@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin Conexión - Mimas Iconic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #FAF7F4;
+            color: #3D3836;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+        }
+        
+        .offline-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            opacity: 0.5;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #3D3836;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            color: #5D5856;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #E8C4C4;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #B99BA4;
+            transform: translateY(-2px);
+        }
+        
+        .offline-tips {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            text-align: left;
+        }
+        
+        .offline-tips h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #3D3836;
+        }
+        
+        .offline-tips ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .offline-tips li {
+            padding: 0.5rem 0;
+            color: #5D5856;
+        }
+        
+        .offline-tips li::before {
+            content: "✓ ";
+            color: #E8C4C4;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <svg class="offline-icon" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="55" stroke="#E8C4C4" stroke-width="3" opacity="0.3"/>
+            <path d="M40 60h40M60 40v40" stroke="#E8C4C4" stroke-width="3" stroke-linecap="round"/>
+            <path d="M35 35l50 50M85 35l-50 50" stroke="#E8C4C4" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        
+        <h1>Sin Conexión</h1>
+        <p>Parece que no tienes conexión a internet en este momento. Por favor, verifica tu conexión y vuelve a intentarlo.</p>
+        
+        <button class="btn" onclick="window.location.reload()">Reintentar</button>
+        
+        <div class="offline-tips">
+            <h2>Mientras tanto:</h2>
+            <ul>
+                <li>Verifica tu conexión WiFi o datos móviles</li>
+                <li>Puedes guardar esta página para verla más tarde</li>
+                <li>Llámanos al <a href="tel:+34123456789" style="color: #E8C4C4;">612 345 678</a></li>
+                <li>Escríbenos por <a href="https://wa.me/34123456789" style="color: #E8C4C4;">WhatsApp</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

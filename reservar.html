@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Cita - Mimas Iconic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="Mimas Iconic - Inicio">Mimas Iconic</a>
+            <div class="nav-links">
+                <a href="index.html#servicios">Servicios</a>
+                <a href="index.html#galeria">Galería</a>
+                <a href="index.html#sobre-mi">Sobre mí</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="reservar.html" class="nav-cta">Reservar</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menú de navegación" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Menú principal móvil">
+        <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Cerrar menú">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#galeria">Galería</a>
+        <a href="index.html#sobre-mi">Sobre mí</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="reservar.html" class="nav-cta">Reservar cita</a>
+    </div>
+
+    <!-- Booking Section -->
+    <main id="booking-main">
+        <div class="container">
+            <div class="booking-header">
+                <h1>Reserva tu Cita</h1>
+                <p class="subtitle">Elige tu servicio, fecha y hora preferidos</p>
+            </div>
+
+            <!-- Booking Steps Indicator -->
+            <div class="booking-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <span class="step-label">Servicio</span>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <span class="step-label">Fecha y Hora</span>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <span class="step-label">Tus Datos</span>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <span class="step-label">Confirmación</span>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="booking-form" class="booking-form">
+                
+                <!-- Step 1: Service Selection -->
+                <div class="form-step active" id="step-1">
+                    <h2>Elige tu Servicio</h2>
+                    <div class="services-selection">
+                        <label class="service-option">
+                            <input type="radio" name="service" value="natural-clean" data-price="18" data-duration="45" required>
+                            <div class="service-card-booking">
+                                <h3>Natural & Clean</h3>
+                                <p class="service-desc">Manicura básica + esmaltado</p>
+                                <div class="service-meta">
+                                    <span class="price">18€</span>
+                                    <span class="duration">45 min</span>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="service-option">
+                            <input type="radio" name="service" value="cute-detail" data-price="25" data-duration="60" required>
+                            <div class="service-card-booking">
+                                <h3>Cute Detail</h3>
+                                <p class="service-desc">Diseños delicados personalizados</p>
+                                <div class="service-meta">
+                                    <span class="price">25€</span>
+                                    <span class="duration">60 min</span>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="service-option">
+                            <input type="radio" name="service" value="soft-glam" data-price="30" data-duration="75" required>
+                            <div class="service-card-booking">
+                                <h3>Soft Glam</h3>
+                                <p class="service-desc">Refuerzo / gel con acabado pulido</p>
+                                <div class="service-meta">
+                                    <span class="price">30€</span>
+                                    <span class="duration">75 min</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-next" onclick="nextStep(2)">
+                        Continuar
+                    </button>
+                </div>
+
+                <!-- Step 2: Date & Time Selection -->
+                <div class="form-step" id="step-2">
+                    <h2>Elige Fecha y Hora</h2>
+                    
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button type="button" class="calendar-nav" id="prev-month" aria-label="Mes anterior">
+                                &#8249;
+                            </button>
+                            <h3 id="calendar-month"></h3>
+                            <button type="button" class="calendar-nav" id="next-month" aria-label="Mes siguiente">
+                                &#8250;
+                            </button>
+                        </div>
+                        <div class="calendar-grid" id="calendar-grid"></div>
+                    </div>
+
+                    <div class="time-selection" id="time-selection" style="display: none;">
+                        <h3>Horas disponibles</h3>
+                        <div class="time-slots" id="time-slots"></div>
+                    </div>
+
+                    <div class="booking-navigation">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(1)">
+                            Volver
+                        </button>
+                        <button type="button" class="btn btn-primary btn-next" onclick="nextStep(3)" id="continue-to-details" disabled>
+                            Continuar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Personal Information -->
+                <div class="form-step" id="step-3">
+                    <h2>Tus Datos</h2>
+                    
+                    <div class="form-group">
+                        <label for="name">Nombre completo *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Teléfono *</label>
+                        <input type="tel" id="phone" name="phone" required pattern="[0-9]{9}" placeholder="Ej: 612345678">
+                        <small>9 dígitos sin espacios ni prefijo</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Notas adicionales (opcional)</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="¿Algún diseño específico en mente? ¿Alergias? Cuéntanos..."></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span>Acepto la <a href="politica-privacidad.html" target="_blank">política de privacidad</a> y <a href="politica-cancelacion.html" target="_blank">política de cancelación</a> *</span>
+                        </label>
+                    </div>
+
+                    <div class="booking-navigation">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(2)">
+                            Volver
+                        </button>
+                        <button type="button" class="btn btn-primary btn-next" onclick="nextStep(4)">
+                            Revisar Reserva
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Confirmation -->
+                <div class="form-step" id="step-4">
+                    <h2>Confirma tu Reserva</h2>
+                    
+                    <div class="booking-summary">
+                        <div class="summary-section">
+                            <h3>Servicio</h3>
+                            <p id="summary-service"></p>
+                            <p class="summary-price" id="summary-price"></p>
+                        </div>
+
+                        <div class="summary-section">
+                            <h3>Fecha y Hora</h3>
+                            <p id="summary-datetime"></p>
+                        </div>
+
+                        <div class="summary-section">
+                            <h3>Tus Datos</h3>
+                            <p id="summary-contact"></p>
+                        </div>
+
+                        <div class="summary-section" id="summary-notes-section" style="display: none;">
+                            <h3>Notas</h3>
+                            <p id="summary-notes"></p>
+                        </div>
+                    </div>
+
+                    <div class="booking-navigation">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(3)">
+                            Volver
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="confirm-booking">
+                            Confirmar Reserva
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div class="form-step" id="step-success" style="display: none;">
+                    <div class="success-message">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="40" cy="40" r="38" stroke="#E8C4C4" stroke-width="4"/>
+                            <path d="M24 40L34 50L56 28" stroke="#E8C4C4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h2>¡Reserva Confirmada!</h2>
+                        <p>Hemos enviado un email de confirmación a <strong id="confirm-email"></strong></p>
+                        <p>También recibirás un recordatorio 24 horas antes de tu cita.</p>
+                        <div class="booking-details-final">
+                            <p id="final-service"></p>
+                            <p id="final-datetime"></p>
+                        </div>
+                        <a href="index.html" class="btn btn-primary">Volver al Inicio</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Ubicación</h4>
+                    <p>Calle Example, 123<br>Valencia, España</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Horarios</h4>
+                    <p>Lunes a Viernes: 10:00 - 20:00<br>Sábado: 10:00 - 14:00<br>Domingo: Cerrado</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Sígueme en Instagram</h4>
+                    <a href="https://instagram.com/mimas.iconic" target="_blank" rel="noopener noreferrer">@mimas.iconic</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mimas Iconic. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="booking.js"></script>
+</body>
+</html>
